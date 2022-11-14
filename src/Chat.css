@@ -1,0 +1,170 @@
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.form {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  width: -webkit-fill-available;
+  background-color: #282c34;
+  border-top: 1px solid white;
+  padding: 5px 10px;
+}
+
+.form .placeholder,
+.form .input-message,
+.form button {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form .input-message {
+  padding: 7px;
+  border: 1px solid #ecebeb;
+  border-radius: 4px;
+  width: -webkit-fill-available;
+}
+
+.form button {
+  width: 100%;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: #282c34;
+  border: 1px solid white;
+}
+
+.input-file {
+  color: black;
+  background-color: white;
+}
+
+.input-message {
+  color: black;
+}
+
+.container {
+  overflow-y: scroll;
+  color: white;
+  background-color: #292f3a;
+}
+
+.container p {
+  display: block;
+}
+
+.talk-bubble {
+  margin: 40px;
+  position: relative;
+  width: 500px;
+  border-radius: 4px;
+  height: auto;
+  background-color: white;
+}
+
+.border {
+  border: 8px solid white;
+}
+
+.left {
+  float: start;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.right {
+  float: end;
+}
+
+.tri-right.border.btm-left:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -8px;
+  right: auto;
+  top: auto;
+  bottom: -40px;
+  border: 32px solid;
+  border-color: transparent transparent transparent #666;
+}
+
+.tri-right.btm-left:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0px;
+  right: auto;
+  top: auto;
+  bottom: -20px;
+  border: 22px solid;
+  border-color: transparent transparent transparent white;
+}
+
+.tri-right.border.btm-right:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -8px;
+  bottom: -40px;
+  border: 20px solid;
+  border-color: #666 #666 transparent transparent;
+}
+.tri-right.btm-right:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: 0px;
+  bottom: -20px;
+  border: 12px solid;
+  border-color: white white transparent transparent;
+}
+
+.tri-right.border.right-in:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -40px;
+  top: 30px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: #666 transparent transparent #666;
+}
+.tri-right.right-in:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -20px;
+  top: 38px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: white transparent transparent white;
+}
+
+.talktext {
+  padding: 1em;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+.talktext p {
+  color: #282c34;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}

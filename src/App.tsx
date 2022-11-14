@@ -9,16 +9,14 @@ function App() {
   axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/chat" element={<Chat />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/chat" element={<Chat />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

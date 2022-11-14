@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./App.css";
 import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
+  useEffect(() => {
+    document.title = "Login | Chat App";
+  }, []);
 
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -21,7 +24,7 @@ function Login() {
       .then((res) => {
         navigate("/chat", {
           state: {
-            id: res.data["data"]["id"],
+            username: res.data["data"]["username"],
           },
         });
       })
