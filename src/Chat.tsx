@@ -118,38 +118,38 @@ function Chat() {
   const messagesBox = () => {
     console.log(messages);
     return messages.length === 0 ? (
-      <div className="center">
-        <p>Waiting for message</p>
-      </div>
+      <div className="center"></div>
     ) : (
       messages.map((m, i) => {
         const plaintext = decrypt(m.text);
         const isImage = plaintext.startsWith("data:image/png;base64,");
         console.log(m.position);
         return (
-          <div
-            className={
-              m.position === "right"
-                ? "talk-bubble tri-right btm-right right"
-                : "talk-bubble tri-right btm-left left"
-            }
-            key={i}
-          >
-            <div className={isImage ? "talkimage" : "talktext"}>
-              {isImage ? (
-                <div>
-                  <img
-                    src={plaintext}
-                    alt=""
-                    style={{
-                      width: "450px",
-                      margin: "10px",
-                    }}
-                  />
-                </div>
-              ) : (
-                <p>{plaintext}</p>
-              )}
+          <div className={"talk-container " + m.position}>
+            <div
+              className={
+                m.position === "right"
+                  ? "talk-bubble tri-right btm-right"
+                  : "talk-bubble tri-right btm-left"
+              }
+              key={i}
+            >
+              <div className={isImage ? "ta3lkimage" : "talktext"}>
+                {isImage ? (
+                  <div>
+                    <img
+                      src={plaintext}
+                      alt=""
+                      style={{
+                        width: "calc(100% - 20px)",
+                        margin: "10px",
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <p>{plaintext}</p>
+                )}
+              </div>
             </div>
           </div>
         );
@@ -159,7 +159,7 @@ function Chat() {
 
   return (
     <div>
-      <div ref={container} className="container">
+      <div ref={container} className="chat-container">
         {messagesBox()}
       </div>
       <div className="form">

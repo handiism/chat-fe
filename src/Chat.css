@@ -45,18 +45,22 @@ body {
   color: black;
 }
 
-.container {
+.chat-container {
   overflow-y: scroll;
   color: white;
   background-color: #292f3a;
 }
 
-.container p {
+.chat-container p {
   display: block;
 }
 
+.talk-container {
+  display: flex;
+}
+
 .talk-bubble {
-  margin: 40px;
+  margin: 20px 40px;
   position: relative;
   width: 500px;
   border-radius: 4px;
@@ -69,7 +73,7 @@ body {
 }
 
 .left {
-  float: start;
+  justify-content: flex-start;
 }
 
 .center {
@@ -80,7 +84,7 @@ body {
 }
 
 .right {
-  float: end;
+  justify-content: flex-end;
 }
 
 .tri-right.border.btm-left:before {
@@ -167,4 +171,11 @@ body {
   color: #282c34;
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
+
+  width: calc(500px - 2em);
+  white-space: pre-wrap; /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word;
 }
