@@ -1,5 +1,6 @@
+import Snackbar from "@mui/material/Snackbar";
 import axios from "axios";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 
@@ -9,6 +10,21 @@ function Register() {
   useEffect(() => {
     document.title = "Register | Chat App";
   }, []);
+
+  const [visibility, setVisibility] = useState<{
+    open: boolean;
+    message: string;
+  }>({
+    open: false,
+    message: "",
+  });
+
+  const handleClose = () => {
+    setVisibility({
+      open: false,
+      message: "",
+    });
+  };
 
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -33,7 +49,11 @@ function Register() {
           });
         })
         .catch((e) => {
-          console.log(e);
+          setVisibility({
+            open: true,
+            message:
+              "Register Failed. User Already Exist or Username/Password Combination is Incorrect",
+          });
         });
     }
   };
@@ -43,6 +63,16 @@ function Register() {
 
   return (
     <div className="App select-none">
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "center",
+          vertical: "bottom",
+        }}
+        autoHideDuration={2000}
+        open={visibility.open}
+        onClose={handleClose}
+        message={visibility.message}
+      />
       <header className="App-header">
         <h1 className="font-bold text-5xl mb-4">Chat App</h1>
         <input

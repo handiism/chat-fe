@@ -49,6 +49,7 @@ body {
   overflow-y: scroll;
   color: white;
   background-color: #292f3a;
+  padding-bottom: 20px;
 }
 
 .chat-container p {

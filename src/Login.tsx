@@ -1,13 +1,29 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import Snackbar from "@mui/material/Snackbar";
 
 function Login() {
+  const [visibility, setVisibility] = useState<{
+    open: boolean;
+    message: string;
+  }>({
+    open: false,
+    message: "",
+  });
+
   const navigate = useNavigate();
   useEffect(() => {
     document.title = "Login | Chat App";
   }, []);
+
+  const handleClose = () => {
+    setVisibility({
+      open: false,
+      message: "",
+    });
+  };
 
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -29,15 +45,30 @@ function Login() {
         });
       })
       .catch((e) => {
-        console.log(e);
+        setVisibility({
+          open: true,
+          message:
+            "User Not Exist or Username/Password Combination is Incorrect",
+        });
       });
   };
+
   const registerTextOnClick = () => {
     navigate("/register");
   };
 
   return (
     <div className="App select-none">
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "center",
+          vertical: "bottom",
+        }}
+        autoHideDuration={2000}
+        open={visibility.open}
+        onClose={handleClose}
+        message={visibility.message}
+      />
       <header className="App-header">
         <h1 className="font-bold text-5xl mb-4">Chat App</h1>
         <input

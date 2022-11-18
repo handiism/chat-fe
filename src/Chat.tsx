@@ -21,8 +21,6 @@ ws.onopen = () => {
       topic: "crypto",
     })
   );
-
-  console.log(`connected to websocket server`);
 };
 
 function Chat() {
@@ -116,30 +114,35 @@ function Chat() {
   };
 
   const messagesBox = () => {
-    console.log(messages);
     return messages.length === 0 ? (
       <div className="center"></div>
     ) : (
       messages.map((m, i) => {
         const plaintext = decrypt(m.text);
         const isImage = plaintext.startsWith("data:image/png;base64,");
-        console.log(m.position);
         return (
-          <div className={"talk-container " + m.position}>
+          <div
+            className={"talk-container " + m.position}
+            key={`talk-container-${i}`}
+          >
             <div
               className={
                 m.position === "right"
                   ? "talk-bubble tri-right btm-right"
                   : "talk-bubble tri-right btm-left"
               }
-              key={i}
+              key={`talk-position-${i}`}
             >
-              <div className={isImage ? "ta3lkimage" : "talktext"}>
+              <div
+                className={isImage ? "" : "talktext"}
+                key={`txt-or-img-${i}`}
+              >
                 {isImage ? (
-                  <div>
+                  <div key={`div-img-${i}`}>
                     <img
                       src={plaintext}
                       alt=""
+                      key={`img-${i}`}
                       style={{
                         width: "calc(100% - 20px)",
                         margin: "10px",
@@ -147,7 +150,7 @@ function Chat() {
                     />
                   </div>
                 ) : (
-                  <p>{plaintext}</p>
+                  <p key={`text-${i}`}>{plaintext}</p>
                 )}
               </div>
             </div>
