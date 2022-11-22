@@ -166,7 +166,7 @@ function Chat() {
         {messagesBox()}
       </div>
       <div className="form">
-        <form onSubmit={formOnSubmit}>
+        <form onSubmit={formOnSubmit} autoComplete="off">
           <div className="placeholder">
             <label>
               Hello <b>{username}</b>. Say something or send image:
@@ -180,6 +180,7 @@ function Chat() {
               className="input-message"
               type="text"
               placeholder="Enter message"
+              autoCapitalize="off"
             />
             <input
               id="input-file"

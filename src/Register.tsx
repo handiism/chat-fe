@@ -77,6 +77,7 @@ function Register() {
         <h1 className="font-bold text-5xl mb-4">Chat App</h1>
         <input
           ref={usernameRef}
+          autoComplete="off"
           className="rounded text-gray-800 p-2"
           type="text"
           placeholder="Enter username"
@@ -84,6 +85,7 @@ function Register() {
         <div className="h-4"></div>
         <input
           ref={passwordRef}
+          autoComplete="off"
           className="rounded text-gray-800 p-2"
           type="password"
           placeholder="Enter password"
@@ -93,6 +95,7 @@ function Register() {
           ref={passwordAgainRef}
           className="rounded text-gray-800 p-2 mb-2"
           type="password"
+          autoComplete="off"
           placeholder="Enter password again"
         />
         <div className="h-2"></div>

@@ -73,6 +73,7 @@ function Login() {
         <h1 className="font-bold text-5xl mb-4">Chat App</h1>
         <input
           ref={usernameRef}
+          autoComplete="off"
           className="rounded text-gray-800 p-2"
           type="text"
           placeholder="Enter username"
@@ -80,6 +81,7 @@ function Login() {
         <div className="h-4"></div>
         <input
           ref={passwordRef}
+          autoComplete="off"
           className="rounded text-gray-800 p-2 mb-2"
           type="password"
           placeholder="Enter password"
